@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黑色背景&浮动物件首页</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+<section class="banner">
+  <header>
+    <a href="#" class="logo">Scr1w</a>
+    <div class="toggle"></div>
+  </header>
+
+  <img src="./images/icon.png" class="men">
+
+  <div class="content">
+    <div class="contentBx">
+      <h4>Hello,</h4>
+      <h2>We're Scr1w</h2>
+      <h3>Professional Network Security Studio</h3>
+      <p>Code and hack | Capture the flag</p>
+      <a href="#">Join Us</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <ul class="sci">
+    <li><a href="#"><img src="./images/facebook.png"></a></li>
+    <li><a href="#"><img src="./images/twitter.png"></a></li>
+    <li><a href="#"><img src="./images/instagram.png"></a></li>
+  </ul>
+
+  <ul class="menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Work</a></li>
+    <li><a href="#">Members</a></li>
+  </ul>
+
+  <img src="./images/1.png" class="elements" data-speed="8">
+  <img src="./images/2.png" class="elements" data-speed="6">
+  <img src="./images/3.png" class="elements" data-speed="-10">
+  <img src="./images/4.png" class="elements" data-speed="-6">
+</section>
+
+<script>
+  const toggle = document.querySelector('.toggle');
+  const banner = document.querySelector('.banner');
+  toggle.onclick = function () {
+    toggle.classList.toggle('active');
+    banner.classList.toggle('active');
+  }
+
+  function parallax(e) {
+    this.querySelectorAll('.elements').forEach(layer => {
+      const speed = layer.getAttribute('data-speed');
+      const x = (window.innerWidth - e.pageX*speed)/100;
+      layer.style.transform = `translateX(${x}px)`;
+    })
+  }
+
+  document.addEventListener("mousemove", parallax);
+</script>
+</body>
+</html>
